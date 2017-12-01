@@ -1,0 +1,328 @@
+:root {
+
+    --primary-light: #6AB7FF;
+    --primary: #1e88e5;
+    --primary-dark: #005cb2;
+    --primary-opacity: rgba(106, 183, 255, 0.2);
+
+    --primary-light: #D05CE3;
+    --primary: #9c27b0;
+    --primary-dark: #6a0080;
+    --primary-opacity: rgba(208, 92, 227, 0.2);
+
+    --brand: #232323;
+    --default: var(--primary);
+    --active: var(--primary-light);
+}
+
+* {font-family: 'Roboto Condensed'; padding: 0; margin: 0; box-sizing: border-box; color: #333}
+html, body {height: 100%}
+body {line-height: 20px}
+
+header {
+
+    background-color: var(--brand);
+    width: 100%;
+    height: 70px;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.2), 0 1px 8px 0 rgba(0,0,0,.12);
+    position: relative;
+    z-index: 20
+}
+
+.logo {max-width: 190px; max-height: 40px}
+header > div {height: 100%}
+header > div a {line-height: 40px; display: inline-block; color: inherit; text-decoration: none}
+header > div a img {user-select: none}
+header > div > a:first-child {height: 100%; padding: 15px 0;}
+header > div > div > a {padding: 0; margin: 15px 0; color: #fff}
+header .btn {margin-right: 10px; margin-left: 10px}
+
+.btn-actioncall {background-color: #2e7d32!important} .btn-actioncall:not(.disabled):hover {background-color: #60ad5e!important}
+.btn-primary {background-color: var(--default)!important} .btn-primary:not(.disabled):hover {background-color: var(--active)!important}
+.btn-secondary {background-color: #37474f!important} .btn-secondary:not(.disabled):hover {background-color: #62727b!important}
+.btn {
+    
+    background: transparent;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    cursor: pointer;
+    user-select: none;
+    padding: 0 20px;
+    transition: background-color 150ms ease-out, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1)
+} .btn.disabled {cursor: not-allowed; opacity: 0.5; box-shadow: none!important;}
+.btn:active {box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4)}
+
+.pull-right {float: right}
+
+.small-container {width: 600px; padding: 15px 50px; margin: 60px auto 40px}
+.container {
+
+    margin-left: auto; margin-right: auto;
+    padding-left: 15px; padding-right: 15px
+}
+
+.small-container h2 {text-align: center; font-family: Roboto; font-weight: 400; padding: 10px 0; margin-bottom: 25px}
+.input-group:not(:last-child), #candidates > div {border-bottom: 1px solid #E5E5E5;}
+.input-group > label {padding: 6px; flex: 0 0 30%; user-select: none}
+.input-group > *:not(label) {padding: 6px 12px; flex: 0 0 70%}
+.input-group > * {line-height: 2; font-size: var(--fs-normal); border: none; white-space: nowrap}
+.input-group > [type="submit"] {width: 100%; margin-top: 20px; color: #fff; flex: 0 0 100%}
+.input-group > *:not([type="submit"]) {background-color: transparent}
+.input-group {display: flex;}
+[type="number"] {padding-right: 1px!important}
+
+
+form input:not([type="submit"]):not([placeholder="Required"])::-webkit-input-placeholder {color: #CA2222}
+form input:not([type="submit"]):not([placeholder="Required"])::-moz-placeholder  {color: #CA2222}
+form input:not([type="submit"]):not([placeholder="Required"]):-ms-input-placeholder {color: #CA2222}
+form input:not([type="submit"]):not([placeholder="Required"]):-moz-placeholder {color: #CA2222}
+
+input:focus {outline: none}
+
+@media (min-width: 768px) {.container{width: 750px} :root {--fs-normal: 12px; --fs-big: 13px; --fs-small: 11px; --fs-xsmall: 10px}}
+@media (min-width: 992px) {.container{width: 970px}}
+@media (min-width: 1200px) {.container{width: 1170px}}
+@media (min-width: 1500px) {:root {--fs-normal: 14px; --fs-big: 15px; --fs-small: 13px; --fs-xsmall: 12px}}
+
+::-webkit-input-placeholder {color: #999}
+::-moz-placeholder {color: #999}
+:-ms-input-placeholder {color: #999}
+:-moz-placeholder {color: #999}
+
+#client {height: calc(100% - 70px); width: 100%}
+#disconnected {
+    
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 70px);
+    margin-top: 70px;
+    top: 0;
+    z-index: 100;
+
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    line-height: calc(100vh - 70px);
+    background-color: rgba(0, 0, 0, 0.775);
+    color: #CA2222
+}
+
+#balance {
+    font-weight: 400;
+    font-family: 'Roboto'
+} #balance, #add-event {margin: 10px auto}
+
+#client {display: flex}
+#middle-panel {flex: 0 1 85%; height: 100%}
+#middle-panel > div {height: 100%; overflow: auto}
+#middle-panel > div.small-container {max-height: calc(100% - 100px)}
+
+#middle-panel, #right-panel {background-color: #E1E1E1}
+
+#left-panel {
+    
+    position: relative;
+    width: 288px;
+    height: 100%;
+    z-index: 10;
+    background-color: #fff;
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,0.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12)
+}
+
+#left-panel li {
+
+    font-size: var(--fs-normal);
+    color: rgba(0, 0, 0, 0.875);
+    padding: 10px 20px;
+    line-height: 24px;
+    transition: color 150ms ease, background-color 150ms ease;
+    font-weight: normal;
+    border-right: 3px solid transparent;
+    user-select: none;
+    cursor: pointer
+} #balance * {color: #333; font-size: inherit}
+#balance > span:last-child {float: right; font-size: var(--fs-big)}
+
+#left-panel li:hover {color: rgba(0, 0, 0, 0.987); background-color: rgba(158, 158, 158, 0.2)}
+#left-panel li:active {background-color: var(--primary-opacity)}
+#left-panel li.active, #balance.active > span:first-child {color: var(--primary)!important}
+#left-panel li.active {border-right-color: var(--primary-light)}
+
+#over.hide {display: none}
+
+#events-list {
+
+    border-top: 1.1px solid #e7e7e7;
+    padding: 10px 0 10px;
+    height: calc(100% - 64px)
+} #client.admin #events-list {border-bottom: 1.1px solid #e7e7e7; height: calc(100% - 128px)}
+
+#events-list > div {margin-top: 10px;}
+#events-list > div:not(:last-child) {margin-bottom: 24px}
+
+#events-list .title {
+
+    font-family: Roboto;
+    font-size: var(--fs-small);
+    padding: 0 15px;
+    line-height: 16px;
+    letter-spacing: .02em;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,.654);
+    user-select: none
+}
+
+#client .content {width: 100%; height: 100%}
+
+.event-details {height: 100%; display: flex; flex-direction: column}
+
+.event-header > div {height: 100%; padding: 0 20px; display: flex; align-items: center}
+.event-header {flex: 1 0 65px; display: flex; justify-content: space-between; text-transform: uppercase; border-bottom: 1.1px solid #d3d3d3}
+.event-header * {color: var(--primary); user-select: none}
+.event-name {font-size: var(--fs-normal); font-weight: 600}
+.event-infos {justify-content: space-around; font-size: var(--fs-xsmall); font-weight: 400}
+.event-timers {display: flex; flex-direction: column; justify-content: space-around}
+.event-infos > div {padding: 0 15px}
+.event-timers > div {text-align: right}
+.event-infos span {font-weight: 500}
+
+.event-content {padding: 10px; flex: 1 1 100%; display: flex}
+.event-section-header {flex: 0 0 auto; display: flex; margin-bottom: 15px; font-size: var(--fs-big); text-transform: uppercase; user-select: none; display: flex}
+.event-section-header > div {flex: 0 50%}
+.event-section-header-pulled {text-align: right; font-size: var(--fs-xsmall); font-weight: 600; font-family: Roboto; text-transform: none; user-select: text}
+.event-section-header-pulled a:hover {color: var(--primary-dark)}
+.event-section-header-pulled a:active {color: var(--primary)}
+
+.event-sections {max-height: 100%; padding: 10px; display: flex; flex-direction: column}
+.event-sections:first-child {flex-basis: 60%}
+.event-sections:last-child {flex-basis: 40%;}
+.not-event .event-sections {flex-basis: 50%;}
+
+.event-section-inner {padding: 15px 20px 20px}
+.event-section-inner.medium {padding: 15px 20px}
+.event-section-inner.small {padding: 15px 20px 10px}
+.event-section, .event-section-small {
+
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12);
+
+    overflow: auto;
+    background-color: #fff; border-collapse: collapse
+}
+.event-section.max {max-height: 428px; flex-shrink: 0}
+.event-section:not(:last-child) {margin-bottom: 20px}
+.event-section-content {display: flex; flex-direction: column; overflow: auto}
+#candidates_list .event-section-content {flex-direction: row; flex-wrap: wrap}
+.event-section-content > div {flex-shrink: 0}
+
+.placeholder {color: #999}
+
+.event-candidate {
+
+    font-size: var(--fs-normal);
+    line-height: var(--fs-normal);
+
+    padding: 10px;
+    margin: 0 10px 10px 0;
+    flex: 1 calc(50% - 20px);
+    
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 3px;
+    border: 1px solid rgb(231, 231, 231);
+    transition: background-color 150ms ease-out, color 150ms ease-out, border-color 150ms ease-out
+}
+.event-candidate:hover {background-color: #eaeaea}
+.event-candidate.active:not(.disabled) {color: var(--primary); border-color: var(--primary)}
+.event-candidate.disabled {opacity: 0.65; cursor: not-allowed; background-color: #eaeaea}
+
+.event-bet {flex: 0 100%; display: flex; padding: 3px 0}
+.event-bet:first-child {user-select: none}
+/* .event-bet:nth-child(even) {background-color: #eaeaea} */
+
+.event-bet > div {text-align: center; font-size: var(--fs-small)}
+
+.event-section .event-bet > div {flex: 1}
+
+.fixed20 {flex: 0 20px!important}
+.grow2 {flex-grow: 2!important}
+
+.edit-bet {cursor: pointer; user-select: none; color: rgba(0, 0, 0, 0.875); border-radius: 2px; transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1)}
+.edit-bet:hover {color: rgba(0, 0, 0, 0.987); background-color: rgba(158, 158, 158, 0.25)}
+.edit-bet:active {background-color: var(--primary-opacity)}
+.event-section .event-bet.active > div {color: var(--primary)!important}
+
+.event-bet:first-child {font-weight: 600; margin-bottom: 10px}
+.event-bet:first-child > div {font-size: var(--fs-normal)}
+
+.loss {color: #CA2222}
+
+.event-section-header.tab {border-bottom: 1px solid rgb(231, 231, 231); border-top: 0px solid rgb(231, 231, 231); display: flex; margin-bottom: 0}
+.event-section-header.tab.bottom {border-top-width: 1px; border-bottom-width: 0px;}
+.event-section-header.tab > span {cursor: pointer; user-select: none; padding: 12px 15px; flex: 100%; text-align: center}
+.event-section-header.tab > span:hover {color: rgba(0, 0, 0, 0.987); background-color: rgba(158, 158, 158, 0.25)}
+.event-section-header.tab > span:active {background-color: var(--primary-opacity)}
+.event-section-header.tab > span.active {color: var(--primary)!important}
+.event-section-header.tab > span:not(:last-child) {border-right: 1px solid rgb(231, 231, 231)}
+
+.tab-panel {display: none}
+.tab-panel.active {display: block}
+
+.event-results .btn {padding-top: 10px; padding-bottom: 10px; color: white}
+
+.modal-outer {
+
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: calc(100% - 70px);
+    background-color: rgba(0, 0, 0, 0.775);
+    
+    transition: visibility 250ms linear, opacity 250ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 0;
+    visibility: hidden;
+} .modal-outer.show {opacity: 1; visibility: visible; transition: opacity 250ms cubic-bezier(0.165, 0.84, 0.44, 1)}
+
+.modal-inner {
+
+    width: 33%;
+    background-color: #fff;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12);
+    margin: 100px auto;
+} .red {color: #CA2222}
+
+.notifications-wrapper {
+
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    width: 100%;
+    pointer-events: none;
+    margin: auto
+}
+
+.notification {
+
+    display: flex;
+    width: 33%;
+    margin: auto;
+    pointer-events: initial;
+    padding: 10px 12px;
+    font-size: var(--fs-small);
+    margin-bottom: 20px;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12);
+
+    background-color: #fff
+}
+
+.notification.error {color: #721c24; background-color: #f8d7da}
+.notification.warning {color: #856404; background-color: #fff3cd}
+.notification.info {color: #0c5460; background-color: #d1ecf1}
+.notification.success {color: #155724; background-color: #d4edda}
+
+.notification-text {flex: 1 100%; color: inherit}
+.notification-close {flex: 0 20px; font-size: 20px; cursor: pointer; text-align: right; color: inherit}
+.notification-close:hover {color: #333;}

@@ -1,0 +1,25 @@
+here is the whole server (the websocket server), running with NodeJS
+as it use a Secure connection (https, or in this case, wss instead of ws), you will need to have a SSL ceritifcate on your server to handle HTTPS connections, and you will need to edit the line 9 and 10 of this file to put the path of your certificate files
+
+(if you don't know how to setup HTTPS on your server, take a look at Let'sEncrypt , should be quite easy, if you have any issue there just tell me)
+
+you'll need to install "mysql-json" and "websocket" packages (with the command "npm install mysql-json websocket" from the command line in the same folder of the server.js file)
+yeah HTTPS is free, I personnaly use Let'sEncrypt certificates
+it encrypts the HTTP connection used by the clients connecting to your server, so the data being send/received cannot be read by anyone else trying to sniff the network
+and when using a HTTPS connection instead of a HTTP, you cannot connect to websocket with WS, but need WSS (secured websocket), so your websocket server (server.js file) needs to know where the certificate is located (line 9 & 10 of the server.js file)
+(you might also need "sha1" and "sha256" packages, same command, "npm install sha1 sha256" from the command line in the same folder of the server.js file)
+To run the server, you simply need to run "node server" from the command line in the same folder of the server.js file, if you see any error message just tell me (it will only be configuration error)
+
+and here is the zip of the website served on a webserver (I use Apache on Linux, but you can use any webserver you already have ; you need PHP to run it, I personally run with PHP7.0 but it should work with PHP5.xx, in any case, try to upgrade to PHP7.0 or PHP7.1)
+it uses a MySQL database, and you can configure it on line 11, 12, 13 (host, port, name of the database) and 17 and 18 (username and password) (FILES index.php and history.php)
+you should also do a CTRL+F on your editor to replace all "https://betting.reddev2.com/" url with the actual URL of your website once you have it
+^ (file index.php)
+in the main.js file you'll need to change the WSS URL line 137 (right now, it is wss://betting.reddev2.com:5000) you will need to change it with the URL you'll have
+the :5000 is the port being used by websocket, if you want to change that you will ALSO need to change it in server.js file (its only line 720)
+you can safely change the file "brand.png" by your own brand image file, try to keep rougthly same size (280x74 pixels)
+
+https://github.com/ebekker/ACMESharp
+
+in the file server.js, line 24 is for the database config (host, name of the database, login, password)
+
+
